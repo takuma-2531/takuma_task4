@@ -14,16 +14,20 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        countLabel.text = String(count)
+        updateCountLabel()
     }
 
     @IBAction private func tapPlusOneButton(_ sender: UIButton) {
         count += 1
-        countLabel.text = String(count)
+        updateCountLabel()
     }
 
     @IBAction private func tapClearButton(_ sender: UIButton) {
         count = 0
+        updateCountLabel()
+    }
+
+    private func updateCountLabel() {
         countLabel.text = String(count)
     }
 }
