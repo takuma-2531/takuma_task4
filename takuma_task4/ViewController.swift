@@ -9,21 +9,27 @@ import UIKit
 
 final class ViewController: UIViewController {
     @IBOutlet weak private var countLabel: UILabel!
-    private var count = 0
+    private var count = 0 {
+        didSet {
+            updateCountLabel()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        countLabel.text = String(count)
+        updateCountLabel()
     }
 
     @IBAction private func tapPlusOneButton(_ sender: UIButton) {
         count += 1
-        countLabel.text = String(count)
     }
 
     @IBAction private func tapClearButton(_ sender: UIButton) {
         count = 0
+    }
+
+    private func updateCountLabel() {
         countLabel.text = String(count)
     }
 }
